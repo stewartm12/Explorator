@@ -14,9 +14,6 @@ Explorator is a 2D visual game where players will have to find the shortest and 
 Here is the link to the live project: N/A
 
 ## Functionality & MVP
-![explorator](https://user-images.githubusercontent.com/68972854/113526182-f8f69d00-9586-11eb-921b-0b949a8ece01.png)
-
-
 Explorator players are able to: 
 * Use their arrow keys to create a path 
 * Visualize how Dijkstra's algorithm is able to find the shortest path
@@ -24,6 +21,7 @@ Explorator players are able to:
 * Find out their result which is the outcome of how similar the player's path is against Dijkstra's
 
 ## Wireframes
+![explorator](https://user-images.githubusercontent.com/68972854/113526182-f8f69d00-9586-11eb-921b-0b949a8ece01.png)
 
 ## Architecture and technologies
 * JavaScript (specifically the Intersection Observer API) for scrolling logic, interactivity, and animations
