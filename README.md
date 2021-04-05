@@ -27,3 +27,8 @@ Explorator players are able to:
 * JavaScript (specifically the Intersection Observer API) for scrolling logic, interactivity, and animations
 * Dijkstra's Algorithm to find the shortest path
 * Webpack for bundling JS files
+
+## Implementation Timeline
+Day 1: Research Dijkstra's Algorithm and how to implement it in my project
+Day 2: Focus on the the design how it will look like
+Day 3: Write the logic, how to use the arrow keys to create a path and the borders
