@@ -8,10 +8,10 @@ const FINISH_NODE_COL = 25;
 class Grid {
   constructor(el) {
     this.el = el;
-    this.grid = this.createGrid();
+    this.grid = this.createInitialGrid();
   }
 
-  createGrid() {
+  createInitialGrid() {
     const grid = [];
     for (let row = 0; row < 20; row++) {
       let newEleRow = document.createElement("div");
