@@ -63,6 +63,14 @@ a > i {
   border: 1px solid gray;
 }
 
+.node-start {
+  background-color: yellow;
+}
+
+.node-finish {
+  background-color: green;
+}
+
 .indo-container {
   height: 50%;
   margin: auto 0px;
@@ -76,4 +84,8 @@ a > i {
   flex-direction: column;
   justify-content: space-around;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.clicked {
+  background-color:white
 }

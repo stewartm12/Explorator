@@ -1,11 +1,11 @@
 import "./styles/index.scss";
-import Grid from "./scripts/grid"
+import Board from "./scripts/board"
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  const grid = document.getElementById("grid")
+  const el = document.getElementById("grid")
 
-  new Grid(grid)
+  new Board(el)
   
 })
 
