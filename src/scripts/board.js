@@ -12,6 +12,7 @@ class Board {
     this.addEventListeners();
     this.buttonsOn = false;
     this.previous = null;
+    this.finishedPath = false;
     this.nodeClicked = null;
   }
 
@@ -45,43 +46,53 @@ class Board {
 
         currentElement.addEventListener("mousedown", function(e) {
           e.preventDefault();
-          if (currentNode.isStart || currentNode.mouseDown) {
-            currentNode.mouseDown = true;
-            board.buttonsOn = true
-            board.nodeClicked = currentElement;
-            if (!board.myPath.includes(currentNode)) {
-              board.myPath.push(currentNode);
+          if (!board.finishedPath) {
+            if (!currentNode.isFinish) {
+              board.nodeClicked = currentElement;
+              if ((currentNode.isStart && board.previous === null) || (board.nodeClicked === board.previous)) {
+                currentNode.mouseDown = true;
+                board.buttonsOn = true
+                if (!board.myPath.includes(currentNode)) {
+                  board.myPath.push(currentNode);
+                }
+              }
             }
           }
         });
             
         currentElement.addEventListener("mouseenter", function(e) {
-          if (board.buttonsOn) {
-            currentNode.mouseDown = true;
-            // board.nodeClicked = currentElement;
-            // debugger
-
-            if (!board.myPath.includes(currentNode)) {  //board.previous === board.nodeClicked
-            board.myPath.push(currentNode);
-              currentElement.className += " clicked";
+          if (!currentNode.isWall) {
+            if (board.buttonsOn) {
+              currentNode.mouseDown = true;
+  
+              if (currentNode.isFinish) {
+                board.buttonsOn = false;
+                board.myPath.push(currentNode);
+                board.finishedPath = true;
+              }
+              
+              if (!board.myPath.includes(currentNode)) { 
+                board.previous = currentElement;
+              board.myPath.push(currentNode);
+                currentElement.className += " clicked";
+              }
             }
+          } else {
+            board.buttonsOn = false;
           }
         });
 
         currentElement.addEventListener("mouseleave" , function(e) {
-          if (board.buttonsOn) {
-            board.previous = currentElement;
-          }
+          // if (board.buttonsOn) {
+          //   board.previous = currentElement;
+          // }
         })
 
 
         currentElement.addEventListener("mouseup", function(e) {
           if (board.buttonsOn) {
-            board.previous = currentElement;
             board.buttonsOn = false;
-            // board.nodeClicked = currentElement;   
           }
-          debugger
         });
 
       }
@@ -94,12 +105,6 @@ class Board {
     let col = parseInt(coordinates[1]);
     return this.grid[row][col];
   };
-
-  // appendElementToDom(className, parent=this.el) {
-  //   let child = document.createElement("div");
-  //   child.className = className;
-  //   parent.appendChild(child);
-  // }
 }
 
 export default Board;
