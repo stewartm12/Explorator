@@ -3,6 +3,21 @@ body {
   background-color: tan;
 }
 
+.header-container {
+  display: flex;  
+  justify-content: space-around;
+  align-items: baseline;
+} 
+
+.header-button {
+  height: 30px;
+  width: 60px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+}
+
 a {
   height: 10%;
   width: 100%;
@@ -19,7 +34,6 @@ a > i {
 
 .title {
   width: 280px;
-  margin: 0px auto;
   color: rgb(13, 22, 109);
   padding: 1%;
 }
@@ -92,4 +106,5 @@ a > i {
 
 .wall {
   background-color: black;
+  border: 1px solid black;
 }

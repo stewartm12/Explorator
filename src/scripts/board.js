@@ -14,6 +14,7 @@ class Board {
     this.previous = null;
     this.finishedPath = false;
     this.nodeClicked = null;
+    // this.clearBoard = this.clearBoard.bind(this);
   }
 
   createBoard() {
@@ -82,11 +83,11 @@ class Board {
           }
         });
 
-        currentElement.addEventListener("mouseleave" , function(e) {
+        // currentElement.addEventListener("mouseleave" , function(e) {
           // if (board.buttonsOn) {
           //   board.previous = currentElement;
           // }
-        })
+        // })
 
 
         currentElement.addEventListener("mouseup", function(e) {
@@ -97,6 +98,21 @@ class Board {
 
       }
     }
+    const clear = document.getElementById("clear-button")
+    clear.addEventListener("click", function(e) {
+      board.myPath.forEach(node => {
+        const row = node.row;
+        const col = node.col;
+        const nodeEle = document.getElementById(`${row}-${col}`);
+        nodeEle.classList.remove("clicked")
+        board.myPath = [];
+        board.buttonsOn = false;
+        board.previous = null;
+        board.finishedPath = false;
+        board.nodeClicked = null;
+      })
+    });
+
   }
 
   getNode(id) {
