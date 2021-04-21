@@ -15,7 +15,10 @@
   <script src="./dist/main.js"></script>
 </body>
 <div class="header-container">
-  <button class="header-button" id="display-button">Display</button>
+  <div>
+    <button class="header-button" id="display-button">Display</button>
+    <button class="header-button" id="solution">Solution</button>
+  </div>
   <h1 class="title">EXPLORATOR</h1>
   <button class="header-button" id="clear-button">Clear</button>
 </div>
@@ -27,9 +30,101 @@
     <div class="grid-container">
       <figure id="grid"></figure>
     </div>
+    
+    
     <div class="info-container">
-      <a href="#"><i class="fas fa-info-circle"></i></a>
-      <a href="#"><i class="fas fa-question-circle"></i></a>
+      <div data-open="modal1" class="info-about"><i class="fas fa-info-circle"></i></div>
+      <div data-open="modal2" class="info-about"><i class="fas fa-question-circle"></i></div>
+    </div>
+    
+
+
+
+
+
+    <div class="modal" id="modal1" data-animation="slideInOutLeft">
+      <div class="modal-dialog">
+        <header class="modal-header">
+          What is Explorator?
+          <button class="close-modal" aria-label="close modal" data-close>
+            ✕
+          </button>
+        </header>
+        <section class="modal-content">
+          <p><strong>Press ✕ or ESC to close it</strong></p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellendus reprehenderit accusamus totam ratione!
+            Nesciunt, nemo dolorum recusandae ad ex nam similique dolorem ab perspiciatis qui. Facere, dignissimos. Nemo,
+            ea.</p>
+          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but
+            because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a
+            trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from
+            it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying
+            consequences, or one who avoids a pain that produces no resultant pleasure</p>
+          <p>Nullam vitae enim vel diam elementum tincidunt a eget metus. Curabitur finibus vestibulum rutrum. Vestibulum
+            semper tellus vitae tortor condimentum porta. Sed id ex arcu. Vestibulum eleifend tortor non purus porta dapibus
+          </p>
+          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but
+            because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a
+            trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from
+            it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying
+            consequences, or one who avoids a pain that produces no resultant pleasure</p>
+        </section>
+        <footer class="modal-footer">
+          The footer of the first modal
+        </footer>
+      </div>
+    </div>
+
+
+
+    <div class="modal" id="modal2" data-animation="slideInOutLeft">
+      <div class="modal-dialog">
+        <header class="modal-header">
+          The header of the second modal hehehehehehehehe
+          <button class="close-modal" aria-label="close modal" data-close>
+            ✕
+          </button>
+        </header>
+        <section class="modal-content">
+          <p><strong>Press ✕, ESC, or click outside of the modal to close it</strong></p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellendus reprehenderit accusamus totam ratione!
+            Nesciunt, nemo dolorum recusandae ad ex nam similique dolorem ab perspiciatis qui. Facere, dignissimos. Nemo,
+            ea.</p>
+          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but
+            because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a
+            trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from
+            it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying
+            consequences, or one who avoids a pain that produces no resultant pleasure</p>
+          <p>Nullam vitae enim vel diam elementum tincidunt a eget metus. Curabitur finibus vestibulum rutrum. Vestibulum
+            semper tellus vitae tortor condimentum porta. Sed id ex arcu. Vestibulum eleifend tortor non purus porta dapibus
+          </p>
+          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but
+            because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a
+            trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from
+            it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying
+            consequences, or one who avoids a pain that produces no resultant pleasure</p>
+        </section>
+        <footer class="modal-footer">
+          The footer of the second modal
+        </footer>
+      </div>
+    </div>
+
+    <div class="modal" id="modal3" data-animation="slideInOutLeft">
+      <div class="modal-dialog">
+        <header class="modal-header">
+          The header of the first modal hahahahahah
+          <button class="close-modal" aria-label="close modal" data-close>
+            ✕
+          </button>
+        </header>
+        <section class="modal-content" id="display-results">
+          <p><strong>Press ✕ or ESC to close it</strong></p>
+        </section>
+        <footer class="modal-footer">
+          The footer of the first modal
+        </footer>
+      </div>
     </div>
   </div>
 </html>

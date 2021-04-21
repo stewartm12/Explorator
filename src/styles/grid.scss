@@ -18,7 +18,7 @@ body {
   outline: none;
 }
 
-a {
+a, .info-about {
   height: 10%;
   width: 100%;
   display: flex;
@@ -30,6 +30,12 @@ a {
 a > i {
   color: white;
   font-size: 200%;
+}
+
+.info-about > i {
+  color: white;
+  font-size: 200%;
+  cursor: pointer;
 }
 
 .title {
@@ -105,6 +111,6 @@ a > i {
 }
 
 .wall {
-  background-color: black;
-  border: 1px solid black;
+  background-color: rgb(32, 32, 32);
+  border: 1px solid rgb(0, 0, 0);
 }
