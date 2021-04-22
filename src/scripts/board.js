@@ -184,7 +184,7 @@ class Board {
       setTimeout(() => {
         const node = nodesInShortestPathOrder[i];
         const nodeElement = document.getElementById(`${node.row}-${node.col}`);
-        debugger
+        
         if (nodeElement.classList.contains("my-path-node")) {
           nodeElement.className = 'node correct-node-shortest-path';
         } else {
@@ -207,7 +207,8 @@ class Board {
     const result = document.createElement("p");
     const textNode = document.createTextNode(`${Math.floor(percentage)}% out of 100% nodes correct`);
     const tryAgain = document.createElement("p");
-    const textNode2 = document.createTextNode("Please Try Again :)");
+    // const textNode2 = document.createTextNode("Please Try Again :)");
+    const textNode2 = this.textResult(percentage);
 
     result.append(textNode);
     tryAgain.append(textNode2);
@@ -227,6 +228,20 @@ class Board {
     })
     const percentage = (setPoints.size / nodesInShortestPathOrder.length) * 100
     return percentage;
+  }
+
+  textResult(score) {
+    if (score === 100) {
+      return document.createTextNode("CONGRATULATIONS! You know what you're doing");
+    } else if (score > 90) {
+      return document.createTextNode("SO CLOSE! Keep working! You got this!");
+    } else if (score > 70) {
+      return document.createTextNode("Not bad! keep it up and you'll get it");
+    } else if (score > 50) {
+      return document.createTextNode("Ehhhhh, you could do better");
+    } else {
+      return document.createTextNode("Study, study, study");
+    }
   }
 
   getNode(id) {
