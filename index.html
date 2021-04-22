@@ -51,7 +51,6 @@
           </button>
         </header>
         <section class="modal-content">
-          <p><strong>Press ✕ or ESC to close it</strong></p>
           <p>Explorator is a 2D visual game where players will have to find the shortest and efficient path from node A to node B.
           Players will be able to use their mouse in order to create a path to arrive at the finishing node (Node B). Once they
           have created their path, Dijkstra's algorithm will run in the background in order to find the shortest path. There will 
@@ -68,9 +67,9 @@
             actual shortest path possible here and if there is any green nodes, then that means you are on the correct path.  
           </p>
         </section>
-        <!-- <footer class="modal-footer">
-          The footer of the first modal
-        </footer> -->
+        <footer class="modal-footer">
+          <p><strong>Press ✕ or ESC to close it</strong></p>
+        </footer>
       </div>
     </div>
 
@@ -85,12 +84,12 @@
           </button>
         </header>
         <section class="modal-content">
-          <p><strong>Press ✕, ESC, or click outside of the modal to close it</strong></p>
+          <div class="legend-container">
           <div class="legend-content">
             <div class="black-path"></div>
             <p>Wall Nodes</p>
           </div>
-          <br>
+          <!-- <br> -->
           <div class="legend-content">
             <div class="white-path"></div>
             <p>Your path</p>
@@ -111,9 +110,10 @@
             <div class="light-blue-path"></div>
             <p>Dijkstra's algorithm</p>
           </div>
+          </div>
         </section>
         <footer class="modal-footer">
-          The footer of the second modal
+          <p><strong>Press ✕, ESC, or click outside of the modal to close it</strong></p>
         </footer>
       </div>
     </div>
