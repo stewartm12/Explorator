@@ -45,33 +45,32 @@
     <div class="modal" id="modal1" data-animation="slideInOutLeft">
       <div class="modal-dialog">
         <header class="modal-header">
-          What is Explorator?
+          WHAT IS EXPLORATOR?
           <button class="close-modal" aria-label="close modal" data-close>
             ✕
           </button>
         </header>
         <section class="modal-content">
           <p><strong>Press ✕ or ESC to close it</strong></p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellendus reprehenderit accusamus totam ratione!
-            Nesciunt, nemo dolorum recusandae ad ex nam similique dolorem ab perspiciatis qui. Facere, dignissimos. Nemo,
-            ea.</p>
-          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but
-            because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a
-            trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from
-            it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying
-            consequences, or one who avoids a pain that produces no resultant pleasure</p>
-          <p>Nullam vitae enim vel diam elementum tincidunt a eget metus. Curabitur finibus vestibulum rutrum. Vestibulum
-            semper tellus vitae tortor condimentum porta. Sed id ex arcu. Vestibulum eleifend tortor non purus porta dapibus
+          <p>Explorator is a 2D visual game where players will have to find the shortest and efficient path from node A to node B.
+          Players will be able to use their mouse in order to create a path to arrive at the finishing node (Node B). Once they
+          have created their path, Dijkstra's algorithm will run in the background in order to find the shortest path. There will 
+          be a score betweeen 0-100% to determine how close the player was to creating the shortest path
+          possible.</p>
+          <p>The starting node (Node A) is highlighted in yellow and the ending node (Node B) is highlighted in green. To start
+            creating a path, click over the starting node(yellow) and drag the mouse over the transparent nodes while still having 
+            the mouse clicked. The black nodes are walls which you are not able to pass through, and if the mouse has entered the wall, 
+            you will need to click on the last node you have left to keep creating the path. You can keep creating a path until you 
+            have reached the finishing node(Green).
           </p>
-          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but
-            because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a
-            trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from
-            it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying
-            consequences, or one who avoids a pain that produces no resultant pleasure</p>
+          <p>Once you have finished creating your path, you can now display dijkstra's algorithm which at the end, will display the
+            score to you. To look at the solution, press the solution button after clicking the display button. The new path is the 
+            actual shortest path possible here and if there is any green nodes, then that means you are on the correct path.  
+          </p>
         </section>
-        <footer class="modal-footer">
+        <!-- <footer class="modal-footer">
           The footer of the first modal
-        </footer>
+        </footer> -->
       </div>
     </div>
 
@@ -80,29 +79,38 @@
     <div class="modal" id="modal2" data-animation="slideInOutLeft">
       <div class="modal-dialog">
         <header class="modal-header">
-          The header of the second modal hehehehehehehehe
+          LEGEND
           <button class="close-modal" aria-label="close modal" data-close>
             ✕
           </button>
         </header>
         <section class="modal-content">
           <p><strong>Press ✕, ESC, or click outside of the modal to close it</strong></p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repellendus reprehenderit accusamus totam ratione!
-            Nesciunt, nemo dolorum recusandae ad ex nam similique dolorem ab perspiciatis qui. Facere, dignissimos. Nemo,
-            ea.</p>
-          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but
-            because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a
-            trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from
-            it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying
-            consequences, or one who avoids a pain that produces no resultant pleasure</p>
-          <p>Nullam vitae enim vel diam elementum tincidunt a eget metus. Curabitur finibus vestibulum rutrum. Vestibulum
-            semper tellus vitae tortor condimentum porta. Sed id ex arcu. Vestibulum eleifend tortor non purus porta dapibus
-          </p>
-          <p>Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but
-            because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a
-            trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from
-            it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying
-            consequences, or one who avoids a pain that produces no resultant pleasure</p>
+          <div class="legend-content">
+            <div class="black-path"></div>
+            <p>Wall Nodes</p>
+          </div>
+          <br>
+          <div class="legend-content">
+            <div class="white-path"></div>
+            <p>Your path</p>
+          </div>
+          <div class="legend-content">
+            <div class="yellow-path"></div>
+            <p>solution path</p>
+          </div>
+          <div class="legend-content">
+            <div class="red-path"></div>
+            <p>Your path </p>
+          </div>
+          <div class="legend-content">
+            <div class="green-path"></div>
+            <p>Correct path</p>
+          </div>
+          <div class="legend-content">
+            <div class="light-blue-path"></div>
+            <p>Dijkstra's algorithm</p>
+          </div>
         </section>
         <footer class="modal-footer">
           The footer of the second modal

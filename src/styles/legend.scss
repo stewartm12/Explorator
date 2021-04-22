@@ -1,0 +1,41 @@
+.legend-content {
+	display: flex;
+	justify-content: space-evenly;
+	border-bottom: 1px solid black;
+}
+
+.black-path {
+	height: 20x;
+  width: 20px;
+  background-color: black;
+}
+
+.red-path {
+	height: 20x;
+  width: 20px;
+	background-color: rgb(192, 24, 24);
+}
+
+.white-path {
+	height: 20x;
+  width: 20px;
+	background-color: white
+}
+
+.yellow-path {
+	height: 20x;
+  width: 20px;
+	background-color: rgba(250, 253, 43, 0.966);
+}
+
+.green-path {
+	height: 20x;
+  width: 20px;
+	background-color: rgba(3, 121, 52, 0.966)
+}
+
+.light-blue-path {
+	height: 20x;
+  width: 20px;
+	background-color: rgba(0, 190, 218, 0.75);
+}
