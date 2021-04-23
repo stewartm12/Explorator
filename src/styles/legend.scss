@@ -62,11 +62,11 @@
 	// background-color: rgba(0, 190, 218, 0.75);
 	border: 1px solid gray;
   animation-name: lightBluePath;
-  animation-duration: 1.5s;
+  animation-duration: 2.0s;
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-direction: alternate;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-play-state: running;
 }
@@ -78,13 +78,18 @@
     border-radius: 100%;
   }
 
-  50% {
+  10% {
     background-color: rgb(17, 104, 217);
   }
 
-  75% {
+  20% {
     transform: scale(1.2);
     background-color: rgb(0, 217, 159);
+  }
+
+  30% {
+    transform: scale(1);
+    background-color: rgb(0, 190, 218);
   }
 
   100% {
@@ -99,11 +104,11 @@
 	// background-color: rgba(0, 190, 218, 0.75);
 	border: 1px solid gray;
   animation-name: redPath;
-  animation-duration: 1.5s;
+  animation-duration: 2.0s;
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-direction: alternate;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-play-state: running;
 }
@@ -115,17 +120,22 @@
     border-radius: 100%;
   }
 
-  25% {
+  10% {
     background-color: rgb(43, 253, 106);
   }
 
-  50% {
+  20% {
     transform: scale(1.2);
     background-color: rgb(250, 253, 43);
   }
 
-  75% {
+  25% {
     background-color: rgb(243, 124, 12);
+  }
+
+  30% {
+    transform: scale(1);
+    background-color: rgb(238, 62, 56);
   }
 
   100% {
@@ -140,11 +150,11 @@
 	// background-color: rgba(0, 190, 218, 0.75);
 	border: 1px solid gray;
   animation-name: greenPath;
-  animation-duration: 1.5s;
+  animation-duration: 2.0s;
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-direction: alternate;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-play-state: running;
 }
@@ -156,13 +166,18 @@
     border-radius: 100%;
   }
 
-  25% {
+  10% {
     background-color: rgb(17, 104, 217);
   }
 
-  50% {
+  20% {
     transform: scale(1.2);
     background-color: rgb(43, 221, 253);
+  }
+
+  30% {
+    transform: scale(1);
+    background-color: rgb(3, 121, 52);
   }
 
   100% {
@@ -177,32 +192,37 @@
 	// background-color: rgba(0, 190, 218, 0.75);
 	border: 1px solid gray;
   animation-name: yellowPath;
-  animation-duration: 1.5s;
+  animation-duration: 2.0s;
   animation-timing-function: ease-out;
   animation-delay: 0;
   animation-direction: alternate;
-  animation-iteration-count: 3;
+  animation-iteration-count: infinite;
   animation-fill-mode: forwards;
   animation-play-state: running;
 }
 
 @keyframes yellowPath {
+  100% {
+    transform: scale(1);
+    background-color: rgb(250, 253, 43);
+	}
+
   0% {
     transform: scale(0.3);
     background-color: rgb(0, 190, 218);
     border-radius: 100%;
   }
 
-  50% {
+  10% {
     background-color: rgb(0, 247, 193);
   }
 
-  75% {
+  20% {
     transform: scale(1.2);
     background-color: rgb(43, 253, 54);
   }
 
-  100% {
+  30% {
     transform: scale(1);
     background-color: rgb(250, 253, 43);
 	}
