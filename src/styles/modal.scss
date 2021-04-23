@@ -1,5 +1,5 @@
 :root {
-  --lightgray: #efefef;
+  --alice: aliceblue;
   --blue: steelblue;
   --white: #fff;
   --black: rgba(0, 0, 0, 0.8);
@@ -22,6 +22,14 @@
   opacity: 0;
   transition: all 0.35s ease-in;
 }
+.modal-content {
+  background-color: #131313;
+
+  p {
+    color: var(--alice);
+    font-size: larger;
+  }
+}
 
 .modal-dialog {
   position: relative;
@@ -39,7 +47,9 @@
  
 .modal-header,
 .modal-footer {
-  background: var(--lightgray);
+  background: black;
+  color: var(--alice);
+  font-size: larger;
 }
  
 .modal-header {
@@ -78,4 +88,3 @@
   transform: none;
   transition-delay: 0.2s;
 }
-
