@@ -5,6 +5,7 @@ const START_NODE_ROW = 18;
 const START_NODE_COL = 1;
 const FINISH_NODE_ROW = 1;
 const FINISH_NODE_COL = 48;
+let VISITED_NODES = null;
 
 class Board {
   constructor(el) {
@@ -110,18 +111,31 @@ class Board {
     }
     const clear = document.getElementById("clear-button")
     clear.addEventListener("click", function(e) {
-      window.location.reload();
-      // board.myPath.forEach(node => {
-      //   const row = node.row;
-      //   const col = node.col;
-      //   const nodeEle = document.getElementById(`${row}-${col}`);
-      //   nodeEle.classList.remove("clicked")
-      //   board.myPath = [];
-      //   board.buttonsOn = false;
-      //   board.previous = null;
-      //   board.finishedPath = false;
-      //   board.nodeClicked = null;
-      // })
+      // window.location.reload("false")
+      board.myPath = [];
+      board.buttonsOn = false;
+      board.previous = null;
+      board.finishedPath = false;
+      board.nodeClicked = null;
+      const dijkstraButton = document.getElementById("display-button");
+      dijkstraButton.removeAttribute("disabled")
+
+      const startNode = document.getElementById(`${START_NODE_ROW}-${START_NODE_COL}`);
+      const finishNode = document.getElementById(`${FINISH_NODE_ROW}-${FINISH_NODE_COL}`);
+
+      for (const node of VISITED_NODES) {
+        const nodeEle = document.getElementById(`${node.row}-${node.col}`);
+
+        if (nodeEle === startNode) {
+          
+          nodeEle.className = "node node-start";
+        } else if (nodeEle === finishNode) {
+          nodeEle.className = "node node-finish";
+          
+        } else {
+          nodeEle.className = "node";
+        }
+      }
     });
 
     const dijkstra = document.getElementById("display-button");
@@ -132,10 +146,10 @@ class Board {
       const startNode = grid[START_NODE_ROW][START_NODE_COL];
       const finishNode = grid[FINISH_NODE_ROW][FINISH_NODE_COL];
       
-      const visitedNodesInOrder = dijkstraAlgo(grid, startNode, finishNode);
-      
+      const visitedNodesInOrder = VISITED_NODES || dijkstraAlgo(grid, startNode, finishNode);
+      VISITED_NODES = visitedNodesInOrder;
       const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
-      // 
+      
       board.animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
     })
 
@@ -205,18 +219,19 @@ class Board {
     const modalContent = document.getElementById("display-results");
 
     const result = document.createElement("p");
-    const textNode = document.createTextNode(`${Math.floor(percentage)}% out of 100% nodes correct`);
+    const textNode = document.createTextNode(`${Math.floor(percentage)}% out of 100%`);
     const tryAgain = document.createElement("p");
     // const textNode2 = document.createTextNode("Please Try Again :)");
     const textNode2 = this.textResult(percentage);
 
-    result.append(textNode);
-    tryAgain.append(textNode2);
-    modalContent.append(result);
-    modalContent.append(tryAgain);
+    if (modalContent.children.length) modalContent.textContent = "";
+
+      result.append(textNode);
+      tryAgain.append(textNode2);
+      modalContent.append(result);
+      modalContent.append(tryAgain);
 
     resultModal.classList.add(isVisible);
-    console.log("achieved")
   }
 
   calculatePoints(myPathOrder, nodesInShortestPathOrder) {
