@@ -1,11 +1,3 @@
-:root {
-  --alice: aliceblue;
-  --blue: steelblue;
-  --white: #fff;
-  --black: rgba(0, 0, 0, 0.8);
-  --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
-}
-
 .modal { 
   position: fixed;
   top: 0;
@@ -23,10 +15,10 @@
   transition: all 0.35s ease-in;
 }
 .modal-content {
-  background-color: #131313;
+  background-color: rgba(0, 0, 0, 0.8);
 
   p {
-    color: var(--alice);
+    color: aliceblue;
     font-size: larger;
   }
 
@@ -39,7 +31,7 @@
   }
 
   a {
-    color: var(--alice);
+    color: aliceblue;
     width: 160px;
     margin-right: 280px;
     line-height: 1.3;
@@ -52,7 +44,7 @@
   max-width: 800px;
   max-height: 80vh;
   border-radius: 5px;
-  background: var(--white);
+  background: #fff;
   overflow: auto;
   cursor: default;
 }
@@ -64,7 +56,7 @@
 .modal-header,
 .modal-footer {
   background: black;
-  color: var(--alice);
+  color: aliceblue;
   font-size: larger;
 }
  
@@ -90,7 +82,7 @@
 [data-animation="slideInOutLeft"] .modal-dialog {
   opacity: 0;
   transform: translateX(-100%);
-  transition: all 0.5s var(--bounceEasing);
+  transition: all 0.5s cubic-bezier(0.51, 0.92, 0.24, 1.15);
 }
  
 [data-animation="slideInOutLeft"].is-visible .modal-dialog {
