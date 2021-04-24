@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="./dist/main.css" />
   <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
   <script src="https://d3js.org/d3.v6.min.js"></script>
@@ -16,7 +17,7 @@
 </body>
 <div class="header-container">
   <div>
-    <button class="header-button" id="display-button">Display</button>
+    <button class="header-button" id="display-button">Dijkstra</button>
     <button class="header-button" id="solution">Solution</button>
   </div>
   <h1 class="title">
@@ -62,21 +63,17 @@
           </button>
         </header>
         <section class="modal-content">
-          <p>Explorator is a 2D visual game where players will have to find the shortest and efficient path from node A to node B.
-          Players will be able to use their mouse in order to create a path to arrive at the finishing node (Node B). Once they
-          have created their path, Dijkstra's algorithm will run in the background in order to find the shortest path. There will 
-          be a score betweeen 0-100% to determine how close the player was to creating the shortest path
-          possible.</p>
-          <p>The starting node (Node A) is highlighted in white and the ending node (Node B) is highlighted in green. To start
-            creating a path, click over the starting node(yellow) and drag the mouse over the transparent nodes while still having 
-            the mouse clicked. The black nodes are walls which you are not able to pass through, and if the mouse has entered the wall, 
-            you will need to click on the last node you have left to keep creating the path. You can keep creating a path until you 
-            have reached the finishing node(Green).
+          <p>Explorator is a 2D visual game where players will have to find the shortest path from the white node to the green node.</p>
+          <p>Players will be able to create a path by clicking and dragging towards the green node. </p>
+          <p>Once they have created their path, Dijkstra's algorithm will run in the background in order to find the shortest path. </p>
+          <p> There will be a score betweeen 0-100% to determine how close the player was to creating the shortest path.</p>
+          <br>
+<div>
+          <p id="link-lead">
+            To read more on Dijkstra's algorithm and the inventor
           </p>
-          <p>Once you have finished creating your path, you can now display dijkstra's algorithm which at the end, will display the
-            score to you. To look at the solution, press the solution button after clicking the display button. The new path is the 
-            actual shortest path possible here and if there is any green nodes, then that means you are on the correct path.  
-          </p>
+          <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" target="_blank">Click Here</a>
+          </div>
         </section>
         <footer class="modal-footer">
           <p><strong>Press ✕ or ESC to close it</strong></p>
@@ -103,23 +100,35 @@
           <!-- <br> -->
           <div class="legend-content">
             <div class="white-path"></div>
-            <p>Your path</p>
+            <p>Your newly created path</p>
           </div>
           <div class="legend-content">
             <div class="yellow-path"></div>
-            <p>solution path</p>
+            <p>Dijkstra's shortest path</p>
           </div>
           <div class="legend-content">
             <div class="red-path"></div>
-            <p>Your path </p>
+            <p>Your path after Dijkstra's search algorithm</p>
           </div>
           <div class="legend-content">
             <div class="green-path"></div>
-            <p>Correct path</p>
+            <p>Your path overlapping Dijkstra's path</p>
           </div>
           <div class="legend-content">
             <div class="light-blue-path"></div>
-            <p>Dijkstra's algorithm</p>
+            <p>Dijkstra's algorithm searching for shortest path</p>
+          </div>
+          <div class="legend-content">
+            <button class="header-button" id="display-button">Dijkstra</button>
+            <p>Displays Dijkstra's algorithm working</p>
+          </div>
+          <div class="legend-content">
+            <button class="header-button" id="solution">Solution</button>
+            <p>Displays Shortest Path</p>
+          </div>
+          <div class="legend-content">
+            <button class="header-button" id="clear-button">Clear</button>
+            <p>Clears the board</p>
           </div>
           </div>
         </section>

@@ -29,6 +29,22 @@
     color: var(--alice);
     font-size: larger;
   }
+
+  #link-lead {
+    width: 120%;
+  }
+
+  div {
+    display: flex;
+  }
+
+  a {
+    color: var(--alice);
+    width: 160px;
+    margin-right: 280px;
+    line-height: 1.3;
+    text-decoration: underline;
+  }
 }
 
 .modal-dialog {
