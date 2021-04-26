@@ -7,6 +7,7 @@ const FINISH_NODE_ROW = 1;
 const FINISH_NODE_COL = 48;
 let VISITED_NODES = null;
 
+
 class Board {
   constructor(el) {
     this.el = el;
@@ -20,10 +21,7 @@ class Board {
     this.previous = null;
     this.finishedPath = false;
     this.nodeClicked = null;
-    // this.myPath.push(this.getNode(`${START_NODE_ROW}-${START_NODE_COL}`));
-    // this.grid.push(this.getNode(`${START_NODE_ROW}-${START_NODE_COL}`));
-    // this.displayDijkstra = this.displayDijkstra.bind(this);
-    // this.clearBoard = this.clearBoard.bind(this);
+    this.clearSolution = this.clearSolution.bind(this);
   }
 
   createBoard() {
@@ -48,6 +46,7 @@ class Board {
   }
 
   addEventListeners() {
+    
     let board = this;
     for (let row = 0; row < board.maxRow; row++) {
       for (let col = 0; col < board.maxCol; col++) {
@@ -94,13 +93,6 @@ class Board {
           }
         });
 
-        // currentElement.addEventListener("mouseleave" , function(e) {
-          // if (board.buttonsOn) {
-          //   board.previous = currentElement;
-          // }
-        // })
-
-
         currentElement.addEventListener("mouseup", function(e) {
           if (board.buttonsOn) {
             board.buttonsOn = false;
@@ -110,37 +102,15 @@ class Board {
       }
     }
     const clear = document.getElementById("clear-button")
-    clear.addEventListener("click", function(e) {
-      // window.location.reload("false")
-      board.myPath = [];
-      board.buttonsOn = false;
-      board.previous = null;
-      board.finishedPath = false;
-      board.nodeClicked = null;
-      const dijkstraButton = document.getElementById("display-button");
-      dijkstraButton.removeAttribute("disabled")
+    
+    clear.addEventListener("click", this.clearSolution);
 
-      const startNode = document.getElementById(`${START_NODE_ROW}-${START_NODE_COL}`);
-      const finishNode = document.getElementById(`${FINISH_NODE_ROW}-${FINISH_NODE_COL}`);
-
-      for (const node of VISITED_NODES) {
-        const nodeEle = document.getElementById(`${node.row}-${node.col}`);
-
-        if (nodeEle === startNode) {
-          
-          nodeEle.className = "node node-start";
-        } else if (nodeEle === finishNode) {
-          nodeEle.className = "node node-finish";
-          
-        } else {
-          nodeEle.className = "node";
-        }
-      }
-    });
 
     const dijkstra = document.getElementById("display-button");
     
     dijkstra.addEventListener("click", function(e) {
+      board.disableButton();
+      
       this.setAttribute("disabled", "true")
       const grid = board.grid;
       const startNode = grid[START_NODE_ROW][START_NODE_COL];
@@ -150,28 +120,72 @@ class Board {
       VISITED_NODES = visitedNodesInOrder;
       const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
       
-      board.animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
+      board.displayDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
     })
 
 
 
   }
 
-  animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
-    const board = this;
+  clearSolution() {
+    this.myPath = [];
+    this.buttonsOn = false;
+    this.previous = null;
+    this.finishedPath = false;
+    this.nodeClicked = null;
+
+    const dijkstraButton = document.getElementById("display-button");
+    dijkstraButton.removeAttribute("disabled");
+
+    const solutionButton = document.getElementById("solution");
+    solutionButton.setAttribute("disabled", "true")
+
+    const startNode = document.getElementById(`${START_NODE_ROW}-${START_NODE_COL}`);
+    const finishNode = document.getElementById(`${FINISH_NODE_ROW}-${FINISH_NODE_COL}`);
+    for (const node of VISITED_NODES) {
+      const nodeEle = document.getElementById(`${node.row}-${node.col}`);
+      if (nodeEle === startNode) {
+        
+        nodeEle.className = "node node-start";
+      } else if (nodeEle === finishNode) {
+        nodeEle.className = "node node-finish";
+        
+      } else {
+        nodeEle.className = "node";
+      }
+    }
+  }
+
+  disableButton() {
+    const clearButton = document.getElementById("clear-button");
+    clearButton.setAttribute("disabled", "true");
+
+    const solutionButton = document.getElementById("solution");
+    solutionButton.setAttribute("disabled", "true")
     
+  }
+
+  enableButton() {
+    
+    const clearButton = document.getElementById("clear-button");
+    clearButton.removeAttribute("disabled");
+
+    const solutionButton = document.getElementById("solution");
+    solutionButton.removeAttribute("disabled");
+  }
+
+  displayDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
+    const board = this;
 
     for (let i = 0; i <= visitedNodesInOrder.length; i++) {
-      // 
+      
       if (i === visitedNodesInOrder.length) {
         const showButton = document.getElementById("solution");
         showButton.addEventListener("click", function(e) {
-          board.animateShortestPath(nodesInShortestPathOrder);
-        })
-        // setTimeout(() => {
+          board.disableButton();
           
-        //   board.animateShortestPath(nodesInShortestPathOrder);
-        // }, 10 * i);
+          board.displayShortestPath(nodesInShortestPathOrder);
+        })
         return;
       }
       setTimeout(() => {
@@ -191,23 +205,25 @@ class Board {
     }
   }
 
-  animateShortestPath(nodesInShortestPathOrder) {
-    const board = this;
+  displayShortestPath(nodesInShortestPathOrder) {
+    let board = this;
     for (let i = 0; i < nodesInShortestPathOrder.length; i++) {
+
+      if (i === nodesInShortestPathOrder.length - 1) {
+          setTimeout(board.enableButton, 40 * i);
+          
+        }
       
       setTimeout(() => {
         const node = nodesInShortestPathOrder[i];
         const nodeElement = document.getElementById(`${node.row}-${node.col}`);
-        
+
         if (nodeElement.classList.contains("my-path-node")) {
           nodeElement.className = 'node correct-node-shortest-path';
         } else {
           nodeElement.className += ' node-shortest-path';
         }
-        // if (i ===  nodesInShortestPathOrder.length - 1) {
-        //   board.displayResults( nodesInShortestPathOrder);
-        // }
-      }, 50 * i);
+      }, 40 * i);
       
     }
   }
@@ -221,7 +237,6 @@ class Board {
     const result = document.createElement("p");
     const textNode = document.createTextNode(`${Math.floor(percentage)}% out of 100%`);
     const tryAgain = document.createElement("p");
-    // const textNode2 = document.createTextNode("Please Try Again :)");
     const textNode2 = this.textResult(percentage);
 
     if (modalContent.children.length) modalContent.textContent = "";

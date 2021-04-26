@@ -36,6 +36,7 @@ class Node {
     this.isWall = this.isWall();
     this.previousNode = null;
     this.distance = Infinity;
+    this.isVisited = false;
   }
 
   isWall() {
