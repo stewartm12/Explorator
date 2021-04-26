@@ -68,7 +68,7 @@ function allSingleNodes(grid) {
   return nodes;
 }
 
-export function getNodesInShortestPathOrder(finishNode) {
+export function dijkstraShortestPath(finishNode) {
   const shortestPath = [];
   let currentNode = finishNode;
   while (currentNode !== null) {

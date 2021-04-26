@@ -1,5 +1,5 @@
 import Node from './node';
-import {dijkstraAlgo, getNodesInShortestPathOrder} from './dijkstra';
+import {dijkstraAlgo, dijkstraShortestPath} from './dijkstra';
 
 const START_NODE_ROW = 18;
 const START_NODE_COL = 1;
@@ -118,7 +118,7 @@ class Board {
       
       const visitedNodesInOrder = VISITED_NODES || dijkstraAlgo(grid, startNode, finishNode);
       VISITED_NODES = visitedNodesInOrder;
-      const nodesInShortestPathOrder = getNodesInShortestPathOrder(finishNode);
+      const nodesInShortestPathOrder = dijkstraShortestPath(finishNode);
       
       board.displayDijkstra(visitedNodesInOrder, nodesInShortestPathOrder);
     })
