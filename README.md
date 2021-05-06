@@ -11,7 +11,7 @@
 Explorator is a 2D visual game where players will have to find the shortest and efficient path from node A to node B. Players will be able to use their arrow keys to move up , down, side to side in order to arrive at node B. Once they have created their path, Dijkstra's algorithm will run in the background in order to find the shortest path between node a to node b. There will be a score betweeen 0-100 to determine how close the player was to creating the shortest path possible to node B.
 
 ## Project link
-Here is the link to the live project: N/A
+Here is the link to the live project: [EXPLORATOR](https://stewartm12.github.io/Explorator/)
 
 ## Functionality & MVP
 Explorator players are able to: 
