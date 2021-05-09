@@ -1,29 +1,28 @@
 export function dijkstraAlgo(grid, startNode, finishNode) {
-	
-  const visitedNodes = [];
+	// sptSet (shortest path tree set)
+  const sptSet = [];
   startNode.distance = 0;
 	
   const unvisitedNodes = allSingleNodes(grid);
 	
   while (unvisitedNodes.length) {
-		
-    sortNodesByDistance(unvisitedNodes);
-		
+
+    sortByDistance(unvisitedNodes);
     const closestNode = unvisitedNodes.shift();
     
     if (closestNode.isWall) continue;
 
     closestNode.isVisited = true;
-    visitedNodes.push(closestNode);
+    sptSet.push(closestNode);
 		
-    if (closestNode === finishNode) return visitedNodes;
+    if (closestNode === finishNode) return sptSet;
 		
     updateUnvisitedNeighbors(closestNode, grid);
 		
   }
 }
 
-function sortNodesByDistance(unvisitedNodes) {
+function sortByDistance(unvisitedNodes) {
   
   unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
 }
@@ -43,13 +42,13 @@ function getUnvisitedNeighbors(node, grid) {
 	
   const neighbors = [];
   const {col, row} = node;
-	
+// grab the top neighbor
   if (row > 0) neighbors.push(grid[row - 1][col]);
-  
+  // grab the bottom neighbor
   if (row < grid.length - 1) neighbors.push(grid[row + 1][col]);
-  
+  // grab the left neighbor
   if (col > 0) neighbors.push(grid[row][col - 1]);
-  
+  // grab the right neighbor
   if (col < grid[0].length - 1) neighbors.push(grid[row][col + 1]);
 	
   return neighbors.filter(neighbor => !neighbor.isVisited);
