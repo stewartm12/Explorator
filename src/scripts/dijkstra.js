@@ -7,8 +7,10 @@ export function dijkstraAlgo(grid, startNode, finishNode) {
 	
   while (unvisitedNodes.length) {
 
-    sortByDistance(unvisitedNodes);
-    const closestNode = unvisitedNodes.shift();
+    // sortByDistance(unvisitedNodes);
+    let unvisitedNodesSorted = unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
+
+    const closestNode = unvisitedNodesSorted.shift();
     
     if (closestNode.isWall) continue;
 
@@ -20,11 +22,6 @@ export function dijkstraAlgo(grid, startNode, finishNode) {
     updateUnvisitedNeighbors(closestNode, grid);
 		
   }
-}
-
-function sortByDistance(unvisitedNodes) {
-  
-  unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
 }
 
 function updateUnvisitedNeighbors(node, grid) {
